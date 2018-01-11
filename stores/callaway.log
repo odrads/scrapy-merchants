@@ -1,0 +1,60 @@
+/usr/local/lib/python2.7/dist-packages/scrapy/spiderloader.py:37: UserWarning: There are several spiders with the same name:
+
+  NikeSpider named 'nike' (in stores.spiders.nike)
+  NikeSpider named 'nike' (in stores.spiders.ping)
+
+  This can cause unexpected behavior.
+  warnings.warn(msg, UserWarning)
+2017-12-08 19:54:08 [scrapy.utils.log] INFO: Scrapy 1.4.0 started (bot: stores)
+2017-12-08 19:54:08 [scrapy.utils.log] INFO: Overridden settings: {'NEWSPIDER_MODULE': 'stores.spiders', 'SPIDER_MODULES': ['stores.spiders'], 'ROBOTSTXT_OBEY': True, 'BOT_NAME': 'stores'}
+2017-12-08 19:54:08 [scrapy.middleware] INFO: Enabled extensions:
+['scrapy.extensions.memusage.MemoryUsage',
+ 'scrapy.extensions.logstats.LogStats',
+ 'scrapy.extensions.telnet.TelnetConsole',
+ 'scrapy.extensions.corestats.CoreStats']
+2017-12-08 19:54:08 [scrapy.middleware] INFO: Enabled downloader middlewares:
+['scrapy.downloadermiddlewares.robotstxt.RobotsTxtMiddleware',
+ 'scrapy.downloadermiddlewares.httpauth.HttpAuthMiddleware',
+ 'scrapy.downloadermiddlewares.downloadtimeout.DownloadTimeoutMiddleware',
+ 'scrapy.downloadermiddlewares.defaultheaders.DefaultHeadersMiddleware',
+ 'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware',
+ 'scrapy.downloadermiddlewares.retry.RetryMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.MetaRefreshMiddleware',
+ 'scrapy.downloadermiddlewares.httpcompression.HttpCompressionMiddleware',
+ 'scrapy.downloadermiddlewares.redirect.RedirectMiddleware',
+ 'scrapy.downloadermiddlewares.cookies.CookiesMiddleware',
+ 'scrapy.downloadermiddlewares.httpproxy.HttpProxyMiddleware',
+ 'scrapy.downloadermiddlewares.stats.DownloaderStats']
+2017-12-08 19:54:08 [scrapy.middleware] INFO: Enabled spider middlewares:
+['scrapy.spidermiddlewares.httperror.HttpErrorMiddleware',
+ 'scrapy.spidermiddlewares.offsite.OffsiteMiddleware',
+ 'scrapy.spidermiddlewares.referer.RefererMiddleware',
+ 'scrapy.spidermiddlewares.urllength.UrlLengthMiddleware',
+ 'scrapy.spidermiddlewares.depth.DepthMiddleware']
+2017-12-08 19:54:08 [py.warnings] WARNING: /app/stores/stores/pipelines.py:8: ScrapyDeprecationWarning: Module `scrapy.contrib.exporter` is deprecated, use `scrapy.exporters` instead
+  from scrapy.contrib.exporter import CsvItemExporter
+
+2017-12-08 19:54:08 [scrapy.middleware] INFO: Enabled item pipelines:
+['stores.pipelines.StoresPipeline']
+2017-12-08 19:54:08 [scrapy.core.engine] INFO: Spider opened
+2017-12-08 19:54:08 [scrapy.extensions.logstats] INFO: Crawled 0 pages (at 0 pages/min), scraped 0 items (at 0 items/min)
+2017-12-08 19:54:08 [scrapy.extensions.telnet] DEBUG: Telnet console listening on 127.0.0.1:6023
+2017-12-08 19:54:08 [scrapy.core.engine] ERROR: Error while obtaining start requests
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/scrapy/core/engine.py", line 127, in _next_request
+    request = next(slot.start_requests)
+  File "/app/stores/stores/spiders/callaway.py", line 16, in start_requests
+    with open('./USPostalCode.txt', 'r') as f:
+IOError: [Errno 2] No such file or directory: '../USPostalCode.txt'
+2017-12-08 19:54:08 [scrapy.core.engine] INFO: Closing spider (finished)
+2017-12-08 19:54:08 [scrapy.statscollectors] INFO: Dumping Scrapy stats:
+{'finish_reason': 'finished',
+ 'finish_time': datetime.datetime(2017, 12, 8, 19, 54, 8, 862218),
+ 'log_count/DEBUG': 1,
+ 'log_count/ERROR': 1,
+ 'log_count/INFO': 7,
+ 'log_count/WARNING': 1,
+ 'memusage/max': 52097024,
+ 'memusage/startup': 52097024,
+ 'start_time': datetime.datetime(2017, 12, 8, 19, 54, 8, 850148)}
+2017-12-08 19:54:08 [scrapy.core.engine] INFO: Spider closed (finished)
