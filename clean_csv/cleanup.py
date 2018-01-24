@@ -2,7 +2,7 @@ import pandas as pd
 
 columns = ['website','name','phone','address','hours_operation','email']
 stores = ['taylormade','titleist','srixon','odyssey','callaway','cleveland','cobra']
-stores = ['salomon']
+stores = ['marin']
 for store in stores:
     csvfile = '%s_items.csv' % store
     raw_data = pd.read_csv(csvfile, names=columns, low_memory=False)

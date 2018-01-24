@@ -21,12 +21,12 @@ class BikeKonaSpider(scrapy.Spider):
             reader = csv.reader(f, delimiter='\t')
             for row in reader:
                 address = "%s, %s" % (row[2], row[3])
+                address = "NJ"
                 EVENTVALIDATION = response.css('input#__EVENTVALIDATION::attr(value)').extract_first()
                 VIEWSTATE = response.css('input#__VIEWSTATE::attr(value)').extract_first()
 
                 yield FormRequest(
-                    'http://www.bullseyelocations.com/pages/KONATEST?f=1',
-                    headers = {'user-agent': 'Mozilla/5.0'},
+                    'https://www.bullseyelocations.com/pages/KONATEST?f=1',
                     formdata = {
                         'ctl00$ToolkitScriptManager1': 'ctl00$ContentPlaceHolder1$upLocator|ctl00$ContentPlaceHolder1$searchButton',
                         '_TSM_HiddenField_': 'ypwUc8yhdocADBxkAn-jA4yOIU5A6IKiHhspMPKV3GA1',
@@ -39,16 +39,11 @@ class BikeKonaSpider(scrapy.Spider):
                         'ctl00$ContentPlaceHolder1$hfMobileDevice': '',
                         'ctl00$ContentPlaceHolder1$hfLocationTerm': 'City & State OR Zip Code',
                         'ctl00$ContentPlaceHolder1$hfCountry': 'United States',
-                        'ctl00$ContentPlaceHolder1$hfSearch': '',
-                        'ctl00$ContentPlaceHolder1$hfLatLng': '',
                         'ctl00$ContentPlaceHolder1$countryList': '1',
-                        'ctl00$ContentPlaceHolder1$tweLocation_ClientState': '', 
-                        'ctl00$ContentPlaceHolder1$txtKeyword': '',
-                        'ctl00$ContentPlaceHolder1$tweKeyword_ClientState': '',
-                        'ctl00$ContentPlaceHolder1$hfTotalPages': '',
-                        'ctl00$ContentPlaceHolder1$hfResultsPerPage': '10000',
+                        'ctl00$ContentPlaceHolder1$hfResultsPerPage': '5',
                         'ctl00$ContentPlaceHolder1$radiusList': '50',
                         'ctl00$ContentPlaceHolder1$txtCityStateZip': address,
+                        '__VIEWSTATEGENERATOR': '86D50429',
                         '__LASTFOCUS': '',
                         '__EVENTTARGET': '',
                         '__EVENTARGUMENT': '',
